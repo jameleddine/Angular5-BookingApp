@@ -1,0 +1,24 @@
+<div class="kont">
+  <video autoplay muted loop>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+    
+  </video>
+  <div class="ent">
+
+<h1 class="title">Welcome to Booking.com</h1>
+            <hr>
+  <h2 class="description"> Inventore, deserunt, architecto consequatur ipsum ex fuga non amet po possimus unde in nulla quam. Inventore, deserunt, architecto consequatur ipsum ex fuga non amet porro</h2>
+  
+    </div>
+  </div>
+
+
+<div class="col-xs-3 col-md-4 column productbox" *ngFor="let h of hotel">
+  <img src="https://randomuser.me/api/portraits/men/{{h.id}}.jpg" class="img-responsive">
+  <div class="producttitle">{{h.title}}</div>
+  <div class="productprice"><div class="pull-right">
+    <a (click)="hotelDetails(h)" class="btn btn-danger btn-sm" role="button">BUY</a>
+  </div>
+  <div class="pricetext">{{h.id}}$</div></div>
+</div>

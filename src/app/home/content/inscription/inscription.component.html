@@ -1,0 +1,75 @@
+<select #langSelect (change)="translate.use(langSelect.value)">
+  <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+</select>
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6">
+        <form novalidate [formGroup]="myform">
+          <h2>{{'welcome'| translate }} <small>{{'information'| translate }}</small></h2>
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group" [ngClass]="{
+                'has-error': myform.controls.first_name.invalid && myform.controls.first_name.dirty, 
+                'has-success': myform.controls.first_name.valid
+              }">
+                 <input [(ngModel)]="firstName" type="text" formControlName="first_name" id="first_name" class="form-control input-lg" placeholder="{{'firstname'| translate }}" tabindex="1" required>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group" [ngClass]="{
+                'has-error': myform.controls.last_name.invalid && myform.controls.last_name.dirty, 
+                'has-success': myform.controls.last_name.valid
+              }">
+                <input [(ngModel)]="lastName" type="text" formControlName="last_name" id="last_name" class="form-control input-lg" placeholder="{{'lastname'| translate }}" tabindex="2" required>
+              </div>
+            </div>
+          </div>
+        
+          <div class="form-group" [ngClass]="{
+            'has-error': myform.controls.email.invalid && myform.controls.email.dirty, 
+            'has-success': myform.controls.email.valid
+          }">
+            <input [(ngModel)]="email" type="email" formControlName="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" required>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group" [ngClass]="{
+                'has-error': myform.controls.password.invalid && myform.controls.password.dirty, 
+                'has-success': myform.controls.password.valid
+              }">
+                <input [(ngModel)]="password" type="password" formControlName="password" id="password" class="form-control input-lg" placeholder="{{'password'| translate }}" tabindex="5" required>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group" [ngClass]="{
+                'has-error': myform.controls.password_confirmation.invalid && myform.controls.password_confirmation.dirty, 
+                'has-success': myform.controls.password_confirmation.valid
+              }">
+                <input [(ngModel)]="confirmPassword" type="password" formControlName="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <input [(ngModel)]="phone" type="phone" formControlName="phone" id="phone" class="form-control input-lg" placeholder="Phone Number" tabindex="4">
+            </div>
+            <div class="form-group">
+                <input [(ngModel)]="adress" type="text" formControlName="adress" id="adress" class="form-control input-lg" placeholder="Adress" tabindex="4">
+              </div>
+          <div class="row">
+          
+            <div class="col-xs-8 col-sm-9 col-md-9">
+               By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+            </div>
+          </div>
+          
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-xs-12 col-md-6"><input (click)="confirm()" type="submit" [disabled]="!myform.valid" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+            <div class="col-xs-12 col-md-6"><a [routerLink]='["login"]' class="btn btn-success btn-block btn-lg">Sign In</a></div>
+          </div>
+         </form> 
+      </div>
+    </div>

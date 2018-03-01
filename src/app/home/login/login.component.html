@@ -1,0 +1,16 @@
+<div class="signin-content">
+    <mat-card>
+      <mat-card-content>
+          <p>Please login to continue</p>
+          <mat-input-container class="full-width-input">
+            <input matInput placeholder="User" [(ngModel)]="pseudo" required>
+            
+          </mat-input-container>
+          <mat-input-container class="full-width-input">
+            <input matInput type="password" [(ngModel)]="password" placeholder="Password" required>
+           
+          </mat-input-container>
+          <button mat-raised-button color="primary" (click)="login()">Login</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
